@@ -62,7 +62,7 @@ class TasksTest extends BaseTest
     }
 
     $tasksArray = $tasks->listTasks($list['id']);
-    $this->assertTrue(sizeof($tasksArray) > 1);
+    $this->assertTrue(count($tasksArray) > 1);
     foreach ($tasksArray['items'] as $task) {
       $this->assertIsTask($task);
     }

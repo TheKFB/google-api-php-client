@@ -225,7 +225,7 @@ PK;
           "exp" => time() + 3600
         )
     );
-    $id_token = $id_token . "a";
+    $id_token .= "a";
     $this->checkIdTokenFailure($id_token, "Invalid token signature");
   }
 
