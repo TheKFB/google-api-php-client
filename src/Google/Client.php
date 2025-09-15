@@ -389,7 +389,7 @@ class Google_Client
   public function setRequestVisibleActions($requestVisibleActions)
   {
     if (is_array($requestVisibleActions)) {
-      $requestVisibleActions = join(" ", $requestVisibleActions);
+      $requestVisibleActions = implode(" ", $requestVisibleActions);
     }
     $this->config->setRequestVisibleActions($requestVisibleActions);
   }

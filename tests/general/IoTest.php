@@ -299,20 +299,20 @@ class IoTest extends BaseTest
 
     $rawResponse = "$rawHeaders\r\n$rawBody";
     list($headers, $body) = $io->parseHttpResponse($rawResponse, $size);
-    $this->assertEquals(3, sizeof($headers));
+    $this->assertEquals(3, count($headers));
     $this->assertEquals(array(), json_decode($body, true));
 
     // Test empty bodies.
     $rawResponse = $rawHeaders . "\r\n";
     list($headers, $body) = $io->parseHttpResponse($rawResponse, $size);
-    $this->assertEquals(3, sizeof($headers));
+    $this->assertEquals(3, count($headers));
     $this->assertEquals(null, json_decode($body, true));
 
     // Test no content.
     $rawerHeaders = "HTTP/1.1 204 No Content\r\n"
       . "Date: Fri, 19 Sep 2014 15:52:14 GMT";
     list($headers, $body) = $io->parseHttpResponse($rawerHeaders, 0);
-    $this->assertEquals(1, sizeof($headers));
+    $this->assertEquals(1, count($headers));
     $this->assertEquals(null, json_decode($body, true));
 
     // Test transforms from proxies.
@@ -332,7 +332,7 @@ class IoTest extends BaseTest
 
       $rawResponse = "$rawHeaders\r\n$rawBody";
       list($headers, $body) = $io->parseHttpResponse($rawResponse, $headersSize);
-      $this->assertEquals(1, sizeof($headers));
+      $this->assertEquals(1, count($headers));
       $this->assertEquals(array(), json_decode($body, true));
     }
   }
